@@ -32,12 +32,4 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-c
 
 RUN usermod -aG docker jenkins
 
-RUN apt install maven -y
-
-WORKDIR ./tmp/Test-mysql-petclinic/
-
-RUN mvn clean package
-
-RUN docker-compose up -d
-
 USER jenkins
