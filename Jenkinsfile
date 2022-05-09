@@ -4,7 +4,6 @@ pipeline {
         stage('Clone Rpository') {
             steps {      
                     sh('git clone https://github.com/Davydoff64/Test-mysql-petclinic.git')
-                }
             }    
         }
         stage('Deployment App') {
