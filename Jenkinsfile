@@ -1,12 +1,21 @@
 pipeline {
     agent any
     stages { 
-        stage('Build') {
+        stage('Clone Rpository') {
             steps {      
-                sh './jenkins/build/mvn.sh mvn -B -DskipTests clean package'
-                sh './jenkins/build/build.sh'
-
+                    sh('git clone https://github.com/Davydoff64/Test-mysql-petclinic.git')
+                }
             }    
         }
+        stage('Deployment App') {
+            steps {
+                sh('mvn clean package ./Test-mysql-petclinic')
+            }
+        }
+        stage('Launch App') {
+            steps {            
+                sh('docker-compose up -d ./Test-mysql-petclinic') 
+            }
+        }
     }
-}             
+}
