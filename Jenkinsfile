@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Launch App') {
             steps {            
-                sh('docker-compose -f Test-mysql-petclinic/docker-compose.yml up') 
+                sh('docker-compose -f Test-mysql-petclinic/docker-compose.yml up -d') 
             }
         }
     }
