@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Deployment App') {
             steps {
-                sh('mvn clean package ./Test-mysql-petclinic')
+                sh('mvn -f ./Test-mysql-petclinic clean package')
             }
         }
         stage('Launch App') {
